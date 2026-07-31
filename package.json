@@ -1,0 +1,11 @@
+{
+  "name": "ad-m365-user-lifecycle-automation",
+  "version": "1.0.0",
+  "description": "Automates AD/M365 user onboarding/offboarding with ticket logging, deployable to AWS Lambda",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["aws-lambda", "microsoft-graph", "active-directory", "automation"],
+  "author": "Karthik Bharadwaj",
+}
