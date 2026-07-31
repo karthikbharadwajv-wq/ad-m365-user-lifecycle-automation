@@ -77,3 +77,6 @@ async function offboardUser(userId) {
 onboardUser({ username: "jane.doe", department: "Sales" });
 offboardUser("AD-123456");
 
+module.exports = { onboardUser, offboardUser };
+
+
