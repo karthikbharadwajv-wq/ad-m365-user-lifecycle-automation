@@ -22,3 +22,4 @@ Deployed as an AWS Lambda function, triggered on demand or via schedule, using I
 
 ## Why this project
 Built to bridge 5+ years of IT/service desk experience (AD, M365, ITSM tools) with cloud automation skills — directly relevant to Cloud Support and Data Center IT Support roles.
+
