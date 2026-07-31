@@ -44,5 +44,36 @@ async function onboardUser(userData) {
   return { adResult, licenseResult, ticket };
 }
 
+// Simulates disabling an AD user account
+async function disableADUser(userId) {
+  if (MOCK_MODE) {
+    console.log(`[MOCK] Disabling AD user: ${userId}`);
+    return { success: true, status: "disabled" };
+  }
+  // Real implementation would disable via LDAP or Graph API here
+}
+
+// Simulates removing an M365 license
+async function removeM365License(userId) {
+  if (MOCK_MODE) {
+    console.log(`[MOCK] Removing license from ${userId}`);
+    return { success: true, licenseRemoved: true };
+  }
+  // Real implementation: PATCH /users/{id}/removeLicense via Graph API
+}
+
+// Main offboarding workflow
+async function offboardUser(userId) {
+  const disableResult = await disableADUser(userId);
+  const licenseResult = await removeM365License(userId);
+  const ticket = await logToTicketSystem("Offboard", userId);
+
+  console.log("Offboarding complete:", { disableResult, licenseResult, ticket });
+  return { disableResult, licenseResult, ticket };
+}
+
+
 // Run example
 onboardUser({ username: "jane.doe", department: "Sales" });
+offboardUser("AD-123456");
+
